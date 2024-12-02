@@ -23,6 +23,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch((err) => console.error('MongoDB connection error:', err));
 
 // Routes
+app.get('/', (req, res) => {
+    res.json({ message: 'Weather API is running' });
+});
+
 const weatherRoutes = require('./routes/weather.routes');
 app.use('/api/weather', weatherRoutes);
 
